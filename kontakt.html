@@ -2,14 +2,13 @@
 <html lang="de">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kontakt</title>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="stylesheet.css">
-  </style>
 </head>
 
 <body>
@@ -29,37 +28,36 @@
   <main>
     <article>
       <section>
-        Mitarbeiter:<br />
+        <h2>Mitarbeiter</h2>
         <div class="card">
-          <image height="200px" src="" /><br>
-          Name
+          <img height="200" src="https://placehold.co/150x200" alt="Mitarbeiterfoto"><br>
+          Vorname Nachname
         </div>
         <hr>
         <form>
-          <textarea id="nachricht" placeholder="Nachricht an die Mitarbeiter..."></textarea>
-          <br />
-          <button id="button" type="button" onclick="add()">Absenden</button>
+          <div class="form-group">
+            <textarea id="nachricht" class="form-control" placeholder="Nachricht an die Mitarbeiter..."></textarea>
+          </div>
+          <button id="button" type="button" class="btn btn-primary">Absenden</button>
 
           <div id="output">
           </div>
         </form>
-
-
       </section>
+
       <section id="address">
         Sportzentrum Königshügel<br>Mies-van-der-Rohe-Straße 3<br>52074 Aachen
       </section>
     </article>
+
     <aside id="right">
-      <a>Übung:
-      </a>
-      <br />
-      <a>Öffnungszeiten
-      </a>
+      <a>Sekretariat:</a>
+      <br>
+      <a>Öffnungszeiten</a>
     </aside>
   </main>
   <footer>
-    Footer
+    Copyright &copy; Hochschulsport
   </footer>
 
 </body>

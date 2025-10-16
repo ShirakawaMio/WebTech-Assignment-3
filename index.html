@@ -2,12 +2,13 @@
 <html lang="de">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Startseite</title>
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="stylesheet.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="stylesheet.css">
 </head>
 
 <body>
@@ -27,36 +28,36 @@
   <main>
     <article>
       <section>
-        <center>
-          <h3>
-            Das Hochschulsportzentrum
-          </h3>
-        </center>
-        <center>
-          <p>
-            Beschreibung
-          </p>
-        </center>
+        <h3>
+          Das Hochschulsportzentrum
+        </h3>
+        <p>
+          Beschreibung
+        </p>
       </section>
 
       <section>
-        <center>
-          <p>
-            <iframe src="https://www.youtube.com/embed/VVIfjrLwEDU" title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen="" width="500" height="400" frameborder="0"></iframe>
-          </p>
-        </center>
+        <div id="video-element">
+          <iframe src="https://www.youtube.com/embed/VVIfjrLwEDU" title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen="" width="500" height="400"></iframe>
+        </div>
+        <form>
+          <label for="video-link">Video-Link:</label>
+          <input id="video-link" type="text">
+          <button class="btn btn-primary">Abspielen</button>
+        </form>
       </section>
     </article>
+
     <aside id="right">
-      <a>Übung:</a>
-      <br />
+      <a>Sekretariat:</a>
+      <br>
       <a>Öffnungszeiten</a>
     </aside>
   </main>
   <footer>
-    Footer
+    Copyright &copy; Hochschulsport
   </footer>
 </body>
 
