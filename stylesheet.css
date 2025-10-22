@@ -1,47 +1,11 @@
+body {
+  font-family: "Heebo", cursive;
+}
+
 header,
 footer {
   padding-left: 10%;
   background-color: rgb(0, 84, 159);
-}
-
-main {
-  display: grid;
-  grid-template-columns: 75% 25%;
-}
-
-article {
-  display: flex;
-  flex-direction: column;
-}
-
-section {
-  border-radius: 5px;
-  background-color: lightgray;
-  padding: 5%;
-
-  margin: 5px;
-}
-
-aside {
-  border-radius: 5px;
-  background-color: lightgray;
-  padding: 5%;
-
-  margin: 5px;
-}
-
-.card {
-  display: inline-block;
-
-  border-radius: 5px;
-  background-color: white;
-  padding: 5%;
-
-  margin: 5px;
-}
-
-body {
-  font-family: "Heebo", cursive;
 }
 
 header {
@@ -49,6 +13,27 @@ header {
   padding-left: 10%;
   color: blue;
   font-weight: bold;
+}
+
+main {
+  display: grid;
+  margin-left: 5%;
+  margin-right: 5%;
+  grid-template-columns: 75% 25%;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+  margin-right: 3%;
+}
+
+section, aside {
+  border-radius: 5px;
+  background-color: lightgray;
+  padding: 5%;
+  margin: 5px;
 }
 
 nav ul {
@@ -72,25 +57,22 @@ nav a:hover {
   color: white;
 }
 
-main {
-  display: flex;
-  margin: 5%;
-}
-
-article {
-  box-sizing: border-box;
-  width: 90%;
-  margin-left: 3%;
-  margin-right: 3%;
-  margin-bottom: 3%;
-}
-
 table {
   text-align: left;
 }
+
 td {
   padding-right: 15px;
   text-align: left;
+}
+
+.card {
+  display: inline-block;
+
+  border-radius: 5px;
+  background-color: white;
+  padding: 5%;
+  margin: 5px;
 }
 
 .form {
