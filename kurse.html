@@ -9,6 +9,74 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="stylesheet.css">
+
+  <script>
+    function createCourseElement(courseName, courseDescription, password) {
+      const table = document.getElementById("table");
+      const newRow = table.insertRow();
+      const nameCell = newRow.insertCell(0);
+      const descriptionCell = newRow.insertCell(1);
+      const passwordCell = newRow.insertCell(2);
+      const deleteCell = newRow.insertCell(3);
+      nameCell.textContent = courseName;
+      descriptionCell.textContent = courseDescription;
+      passwordCell.innerHTML = `<input class="text" type="password" value="${password}">`;
+      deleteCell.innerHTML = `<button class="btn btn-danger">Löschen</button>`;
+    }
+
+    function addCourse(event) {
+      event.preventDefault();
+      const courseName = document.getElementById("coursename").value;
+      const courseDescription = document.getElementById("coursedescription").value;
+      const password = document.getElementById("password").value;
+      for (let i = 0; i < localStorage.length; i++) {
+        if (localStorage.key(i) === courseName) {
+          document.getElementById("coursename").style.borderColor = "red";
+          return;
+        }
+      }
+      document.getElementById("coursename").style.borderColor = "white";
+      createCourseElement(courseName, courseDescription, password);
+      localStorage.setItem(courseName, JSON.stringify({ description: courseDescription, password: password }));
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const storedCourses = Object.keys(localStorage);
+      const table = document.getElementById("table");
+      storedCourses.forEach(courseName => {
+        const courseData = JSON.parse(localStorage.getItem(courseName));
+        createCourseElement(courseName, courseData.description, courseData.password);
+      });
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const courseForm = document.getElementById("course-form");
+      if (courseForm) {
+        courseForm.addEventListener("submit", addCourse);
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const table = document.getElementById("table");
+      table.addEventListener("click", function (event) {
+        if (event.target.tagName === "BUTTON" &&
+            event.target.textContent === "Löschen") 
+        {
+          const row = event.target.closest("tr");
+          const courseName = row.cells[0].textContent;
+          const passwordInput = row.cells[2].querySelector("input").value;
+
+          if (passwordInput === JSON.parse(localStorage.getItem(courseName)).password) {
+            table.deleteRow(row.rowIndex);
+            localStorage.removeItem(courseName);
+            row.cells[2].querySelector("input").style.borderColor = "white";
+          } else {
+            row.cells[2].querySelector("input").style.borderColor = "red";
+          }
+        }
+      });
+    });
+  </script>
 </head>
 
 <body>
@@ -28,7 +96,7 @@
   <main>
     <article>
       <section>
-        <form>
+        <form id="course-form">
           <div class="form-group">
             <label for="coursename">Kursname</label>
             <input type="text" class="form-control" id="coursename" placeholder="Enter email">
